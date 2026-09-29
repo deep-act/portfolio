@@ -1,0 +1,18 @@
+[Script Info]
+Title: Tech Intro V3
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,32,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,2,1,2,20,20,20,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Event: 0,0:00:00.00,0:00:01.50,Default,,0,0,0,,多智能体商品识别系统
+Event: 0,0:00:01.50,0:00:03.00,Default,,0,0,0,,输入货架图像，自动检测商品位置
+Event: 0,0:00:03.00,0:00:04.50,Default,,0,0,0,,质量评估过滤模糊图片
+Event: 0,0:00:04.50,0:00:06.00,Default,,0,0,0,,特征检索匹配商品库
+Event: 0,0:00:06.00,0:00:07.50,Default,,0,0,0,,OCR联合分辨相似品
+Event: 0,0:00:07.50,0:00:10.00,Default,,0,0,0,,最终输出SKU编码，实现智能识别
