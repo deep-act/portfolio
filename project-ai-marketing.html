@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AI 营销内容自动生成系统 · 作品集</title>
+<title>AI 多模态内容生成 · 作品集</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -25,11 +25,6 @@
   }
   .lnav .back { color: #2997ff; text-decoration: none; font-size: 14px; }
   .lnav .back:hover { color: #6cb6ff; }
-  .lnav .title { font-weight: 600; font-size: 14px; color: #a1a1a6; }
-  .lnav .cta-btn {
-    background: #0071e3; color: #fff; border-radius: 980px;
-    padding: 6px 18px; font-size: 13px; text-decoration: none;
-  }
 
   /* Hero */
   .hero {
@@ -64,94 +59,79 @@
     margin-bottom: 12px; text-align: center;
   }
 
-  /* Video/Audio Player */
-  .media-card {
-    background: #111; border-radius: 12px; overflow: hidden;
-    border: 1px solid #1d1d1f; margin-bottom: 16px;
+  /* Video Cards */
+  .video-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   }
-  .media-card video, .media-card audio {
+  .video-card {
+    background: #111; border-radius: 12px; overflow: hidden;
+    border: 1px solid #1d1d1f;
+  }
+  .video-card video {
     width: 100%; display: block;
   }
-  .media-card .media-label {
+  .video-card .video-label {
     padding: 10px; font-size: 11px; color: #a1a1a6; text-align: center;
   }
+  .video-card .video-title {
+    padding: 0 10px 4px; font-size: 12px; font-weight: 600; color: #f5f5f7; text-align: center;
+  }
 
-  /* Flow Diagram */
-  .flow-diagram {
+  /* Tech Architecture */
+  .tech-arch {
     background: linear-gradient(180deg, #0a1628 0%, #0d1117 100%);
     border-radius: 16px; padding: 24px;
     border: 1px solid #1d1d1f;
   }
-  .flow-title {
+  .arch-title {
     text-align: center; font-size: 15px; font-weight: 600;
-    margin-bottom: 20px; color: #f5f5f7;
+    margin-bottom: 24px; color: #f5f5f7;
   }
 
-  /* Pipeline */
-  .pipeline {
-    display: flex; align-items: center; justify-content: center;
-    gap: 12px; margin-bottom: 20px; flex-wrap: wrap;
+  /* Two columns */
+  .arch-columns {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
   }
-  .pipeline-node {
-    background: #1a1a1a; border-radius: 10px; padding: 12px;
-    width: 140px; text-align: center;
-    border: 1px solid #2a2a2a;
-  }
-  .pipeline-node .node-icon { font-size: 24px; margin-bottom: 6px; }
-  .pipeline-node .node-name { font-size: 11px; font-weight: 600; color: #f5f5f7; }
-  .pipeline-node .node-desc { font-size: 9px; color: #6e6e73; margin-top: 2px; }
-  .pipeline-arrow { font-size: 16px; color: #2997ff; flex-shrink: 0; }
-
-  /* Two branches */
-  .branches {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    margin-top: 20px;
-  }
-  .branch-card {
+  .arch-col {
     background: #111; border-radius: 12px; padding: 16px;
     border: 1px solid #1d1d1f;
   }
-  .branch-title {
-    font-size: 12px; font-weight: 600; color: #2997ff;
-    margin-bottom: 10px; text-align: center;
+  .arch-col-title {
+    font-size: 13px; font-weight: 600; color: #2997ff;
+    margin-bottom: 12px; text-align: center;
   }
-  .branch-steps {
+  .arch-col-desc {
+    font-size: 11px; color: #a1a1a6; text-align: center;
+    margin-bottom: 16px; line-height: 1.4;
+  }
+
+  /* Stack */
+  .stack {
     display: flex; flex-direction: column; gap: 8px;
   }
-  .branch-step {
-    background: #1a1a1a; border-radius: 8px; padding: 8px 10px;
+  .stack-item {
+    background: #1a1a1a; border-radius: 8px; padding: 10px 12px;
     border: 1px solid #2a2a2a;
   }
-  .branch-step .step-name { font-size: 10px; font-weight: 600; color: #f5f5f7; }
-  .branch-step .step-desc { font-size: 9px; color: #6e6e73; margin-top: 2px; }
-  .branch-arrow-down {
-    text-align: center; font-size: 12px; color: #2997ff;
+  .stack-item .item-name {
+    font-size: 11px; font-weight: 600; color: #f5f5f7;
   }
-
-  /* Input materials */
-  .input-materials {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-    margin-bottom: 16px;
+  .stack-item .item-desc {
+    font-size: 9px; color: #6e6e73; margin-top: 2px;
   }
-  .material-card {
-    background: #111; border-radius: 8px; overflow: hidden;
-    border: 1px solid #1d1d1f;
+  .stack-arrow {
+    text-align: center; font-size: 14px; color: #2997ff;
   }
-  .material-card img {
-    width: 100%; height: 80px; object-fit: cover;
+  .stack-result {
+    background: #1a1a1a; border-radius: 8px; padding: 10px 12px;
+    border: 1px solid #2997ff40;
   }
-  .material-card .material-label {
-    padding: 6px; font-size: 9px; color: #a1a1a6; text-align: center;
+  .stack-result .result-name {
+    font-size: 11px; font-weight: 600; color: #2997ff;
   }
-
-  /* Footer */
-  .footer {
-    background: #000; border-top: 1px solid #1d1d1f;
-    padding: 20px 6%; text-align: center;
+  .stack-result .result-desc {
+    font-size: 9px; color: #a1a1a6; margin-top: 2px;
   }
-  .footer a { color: #2997ff; text-decoration: none; font-size: 13px; }
-  .footer a:hover { color: #6cb6ff; }
-  .footer p { font-size: 10px; color: #424245; margin-top: 8px; }
 
   /* Fade in */
   .fade-in {
@@ -161,10 +141,8 @@
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 768px) {
-    .branches { grid-template-columns: 1fr; }
-    .input-materials { grid-template-columns: 1fr; }
-    .pipeline { flex-direction: column; }
-    .pipeline-arrow { transform: rotate(90deg); }
+    .video-grid { grid-template-columns: 1fr; }
+    .arch-columns { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -172,138 +150,95 @@
 
 <nav class="lnav">
   <a href="index.html" class="back">‹ 返回</a>
-  <span class="title">AI 营销内容自动生成</span>
-  <a href="index.html#contact" class="cta-btn">联系我</a>
 </nav>
 
 <section class="hero">
-  <p class="eyebrow">AI Marketing Content Generation</p>
-  <h1>营销内容自动生成系统</h1>
-  <p class="sub">基于商品识别技术方案，自动生成宣传视频与数字人演示</p>
+  <p class="eyebrow">AI Multimodal Content Generation</p>
+  <h1>AIGC</h1>
+  <p class="sub">数字人对话 · 文生视频</p>
 </section>
 
 <div class="main-container">
 
-  <!-- Generated Content Demo -->
+  <!-- Demo Videos -->
   <div class="section fade-in">
-    <div class="section-title">生成结果演示</div>
-
-    <!-- LTX-2 Video -->
-    <div class="media-card">
-      <video controls poster="assets/agent-products/shelf_new.jpg">
-        <source src="assets/agent-products/promo_video.mp4" type="video/mp4" />
-        您的浏览器不支持视频播放
-      </video>
-      <div class="media-label">LTX-2 宣传视频 · 货架商品识别系统演示</div>
-    </div>
-
-    <!-- IndexTTS Audio -->
-    <div class="media-card">
-      <audio controls>
-        <source src="assets/agent-products/demo_audio.wav" type="audio/wav" />
-        您的浏览器不支持音频播放
-      </audio>
-      <div class="media-label">IndexTTS 语音合成 · 数字人旁白 (演示)</div>
-    </div>
-  </div>
-
-  <!-- Input Materials -->
-  <div class="section fade-in">
-    <div class="section-title">输入素材</div>
-    <div class="input-materials">
-      <div class="material-card">
-        <img src="assets/agent-products/shelf_new.jpg" alt="货架图" />
-        <div class="material-label">货架实拍图</div>
+    <div class="section-title">效果演示</div>
+    <div class="video-grid">
+      <!-- Digital Human Video -->
+      <div class="video-card">
+        <video controls poster="assets/agent-products/anime_avatar.png">
+          <source src="assets/agent-products/digital_human_oac_demo.mp4" type="video/mp4" />
+          您的浏览器不支持视频播放
+        </video>
+        <div class="video-title">数字人对话</div>
+        <div class="video-label">IndexTTS + OpenAvatarChat</div>
       </div>
-      <div class="material-card">
-        <img src="assets/agent-products/yolo_detect.png" alt="检测图" />
-        <div class="material-label">商品检测图</div>
-      </div>
-      <div class="material-card">
-        <img src="assets/agent-products/coke_sugar.png" alt="相似品" />
-        <div class="material-label">相似品对比图</div>
+
+      <!-- Text-to-Video -->
+      <div class="video-card">
+        <video controls poster="assets/agent-products/pexels_0.jpg">
+          <source src="assets/agent-products/promo_video_mpt.mp4" type="video/mp4" />
+          您的浏览器不支持视频播放
+        </video>
+        <div class="video-title">文字生成视频</div>
+        <div class="video-label">LTX-2 + MoneyPrinterTurbo</div>
       </div>
     </div>
   </div>
 
-  <!-- Flow Diagram -->
-  <div class="flow-diagram fade-in">
-    <div class="flow-title">系统处理流程</div>
+  <!-- Tech Architecture -->
+  <div class="tech-arch fade-in">
+    <div class="arch-title">技术架构</div>
+    <div class="arch-columns">
 
-    <!-- Main Pipeline -->
-    <div class="pipeline">
-      <div class="pipeline-node">
-        <div class="node-icon">📄</div>
-        <div class="node-name">技术方案输入</div>
-        <div class="node-desc">商品识别系统文档</div>
-      </div>
-      <div class="pipeline-arrow">→</div>
-      <div class="pipeline-node">
-        <div class="node-icon"></div>
-        <div class="node-name">Lead Agent</div>
-        <div class="node-desc">文案生成 + 分镜设计</div>
-      </div>
-      <div class="pipeline-arrow">→</div>
-      <div class="pipeline-node">
-        <div class="node-icon">🎯</div>
-        <div class="node-name">素材匹配</div>
-        <div class="node-desc">图片/视频素材库</div>
-      </div>
-    </div>
-
-    <!-- Two Branches -->
-    <div class="branches">
-      <!-- Video Branch -->
-      <div class="branch-card">
-        <div class="branch-title">🎬 宣传视频生成</div>
-        <div class="branch-steps">
-          <div class="branch-step">
-            <div class="step-name">LTX-2 视频生成</div>
-            <div class="step-desc">文案 + 图片 → 宣传短片</div>
+      <!-- Column 1: Digital Human -->
+      <div class="arch-col">
+        <div class="arch-col-title">克隆真人的数字人对话系统</div>
+        <div class="arch-col-desc">语音克隆 + 面部动画 = 逼真数字人</div>
+        <div class="stack">
+          <div class="stack-item">
+            <div class="item-name">IndexTTS</div>
+            <div class="item-desc">零样本语音克隆 · 参考音频→目标语音</div>
           </div>
-          <div class="branch-arrow-down">↓</div>
-          <div class="branch-step">
-            <div class="step-name">素材库</div>
-            <div class="step-desc">货架图 · 检测图 · 流程图</div>
+          <div class="stack-arrow">↓</div>
+          <div class="stack-item">
+            <div class="item-name">OpenAvatarChat</div>
+            <div class="item-desc">语音驱动面部动画 · 流式对话</div>
           </div>
-          <div class="branch-arrow-down">↓</div>
-          <div class="branch-step">
-            <div class="step-name">视频合成</div>
-            <div class="step-desc">字幕 + 背景音乐 + 旁白</div>
+          <div class="stack-arrow">↓</div>
+          <div class="stack-result">
+            <div class="result-name">数字人视频</div>
+            <div class="result-desc">克隆真人声音 + 自然面部表情</div>
           </div>
         </div>
       </div>
 
-      <!-- Digital Human Branch -->
-      <div class="branch-card">
-        <div class="branch-title">🎭 数字人演示</div>
-        <div class="branch-steps">
-          <div class="branch-step">
-            <div class="step-name">IndexTTS 语音合成</div>
-            <div class="step-desc">问答文本 → 语音音频</div>
+      <!-- Column 2: Text-to-Video -->
+      <div class="arch-col">
+        <div class="arch-col-title">文字生成视频</div>
+        <div class="arch-col-desc">文案 + 素材 = 自动成片</div>
+        <div class="stack">
+          <div class="stack-item">
+            <div class="item-name">LTX-2</div>
+            <div class="item-desc">DiT 架构 · 文/图→视频生成</div>
           </div>
-          <div class="branch-arrow-down">↓</div>
-          <div class="branch-step">
-            <div class="step-name">OpenAvatarChat</div>
-            <div class="step-desc">语音 + 文本 → 数字人视频</div>
+          <div class="stack-arrow">↓</div>
+          <div class="stack-item">
+            <div class="item-name">MoneyPrinterTurbo</div>
+            <div class="item-desc">文案→语音→素材→字幕→成片</div>
           </div>
-          <div class="branch-arrow-down">↓</div>
-          <div class="branch-step">
-            <div class="step-name">面部动画生成</div>
-            <div class="step-desc">低延迟流式对话</div>
+          <div class="stack-arrow">↓</div>
+          <div class="stack-result">
+            <div class="result-name">成品视频</div>
+            <div class="result-desc">全自动 AI 视频生产流水线</div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
 </div>
-
-<!-- Footer -->
-<footer class="footer">
-  <a href="index.html">‹ 返回作品集</a>
-  <p>© 2026 Portfolio</p>
-</footer>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
