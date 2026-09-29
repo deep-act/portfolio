@@ -17,7 +17,7 @@ ASS_FILE = f"{ASSETS}/tech_intro_v3.ass"
 # Compressed narration for 10 seconds (faster rate)
 NARRATION = "多智能体商品识别系统，输入货架图像，自动检测商品位置，质量评估过滤模糊图片，特征检索匹配商品库，OCR联合分辨相似品，最终输出SKU编码，实现智能识别。"
 
-# ASS subtitles compressed to 10 seconds
+# ASS subtitles compressed to 10 seconds (matching voice at +60% rate, ~9.91s)
 ASS_CONTENT = """[Script Info]
 Title: Tech Intro V3
 ScriptType: v4.00+
@@ -30,18 +30,18 @@ Style: Default,Arial,32,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,1,0,0,0,100,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Event: 0,0:00:00.00,0:00:01.50,Default,,0,0,0,,多智能体商品识别系统
-Event: 0,0:00:01.50,0:00:03.00,Default,,0,0,0,,输入货架图像，自动检测商品位置
-Event: 0,0:00:03.00,0:00:04.50,Default,,0,0,0,,质量评估过滤模糊图片
-Event: 0,0:00:04.50,0:00:06.00,Default,,0,0,0,,特征检索匹配商品库
-Event: 0,0:00:06.00,0:00:07.50,Default,,0,0,0,,OCR联合分辨相似品
-Event: 0,0:00:07.50,0:00:10.00,Default,,0,0,0,,最终输出SKU编码，实现智能识别
+Event: 0,0:00:00.00,0:00:01.60,Default,,0,0,0,,多智能体商品识别系统
+Event: 0,0:00:01.60,0:00:03.20,Default,,0,0,0,,输入货架图像，自动检测商品位置
+Event: 0,0:00:03.20,0:00:04.80,Default,,0,0,0,,质量评估过滤模糊图片
+Event: 0,0:00:04.80,0:00:06.40,Default,,0,0,0,,特征检索匹配商品库
+Event: 0,0:00:06.40,0:00:08.00,Default,,0,0,0,,OCR联合分辨相似品
+Event: 0,0:00:08.00,0:00:09.91,Default,,0,0,0,,最终输出SKU编码，实现智能识别
 """
 
 async def generate_voice():
     """Generate fast voice narration."""
-    print("Generating voice narration (fast rate)...")
-    communicate = edge_tts.Communicate(NARRATION, "zh-CN-YunxiNeural", rate="+30%")
+    print("Generating voice narration (fast rate +60%)...")
+    communicate = edge_tts.Communicate(NARRATION, "zh-CN-YunxiNeural", rate="+60%")
     await communicate.save(AUDIO)
     print(f"Audio saved: {AUDIO}")
 
