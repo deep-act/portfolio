@@ -1,0 +1,7 @@
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="zh-CN">
+    <voice name="zh-CN-YunxiNeural">
+        <prosody rate="-5%">
+            多智能体商品识别系统，解决商超货架商品自动识别难题。<break time="500ms"/><break time="500ms"/>输入商品货架图像，系统自动检测每个商品位置。<break time="500ms"/><break time="500ms"/>通过质量评估，识别模糊或局部图像，确保识别准确性。<break time="500ms"/><break time="500ms"/>对于相似商品，如可口可乐有糖和无糖版本，系统进入精细分辨流程。<break time="500ms"/><break time="500ms"/>通过特征检索，向量匹配商品特征库。<break time="500ms"/><break time="500ms"/>结合OCR文字识别和指纹库，联合分辨相似商品。<break time="500ms"/><break time="500ms"/>最终输出每个商品的SKU编码，实现货架商品的智能识别。
+        </prosody>
+    </voice>
+</speak>

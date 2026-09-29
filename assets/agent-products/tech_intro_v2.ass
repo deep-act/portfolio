@@ -1,0 +1,26 @@
+[Script Info]
+Title: Tech Intro Subtitles
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,36,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,2,1,2,30,30,30,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Event: 0,0:00:00.00,0:00:03.00,Default,,0,0,0,,多智能体商品识别系统
+Event: 0,0:00:00.50,0:00:03.00,Default,,0,0,0,,解决商超货架商品自动识别难题
+Event: 0,0:00:03.00,0:00:06.00,Default,,0,0,0,,输入商品货架图像
+Event: 0,0:00:03.50,0:00:06.00,Default,,0,0,0,,系统自动检测每个商品位置
+Event: 0,0:00:06.00,0:00:08.50,Default,,0,0,0,,通过质量评估
+Event: 0,0:00:06.50,0:00:08.50,Default,,0,0,0,,识别模糊或局部图像
+Event: 0,0:00:08.50,0:00:11.00,Default,,0,0,0,,对于相似商品
+Event: 0,0:00:09.00,0:00:11.00,Default,,0,0,0,,系统进入精细分辨流程
+Event: 0,0:00:11.00,0:00:13.50,Default,,0,0,0,,通过特征检索
+Event: 0,0:00:11.50,0:00:13.50,Default,,0,0,0,,向量匹配商品特征库
+Event: 0,0:00:13.50,0:00:16.00,Default,,0,0,0,,结合OCR文字识别和指纹库
+Event: 0,0:00:14.00,0:00:16.00,Default,,0,0,0,,联合分辨相似商品
+Event: 0,0:00:16.00,0:00:19.00,Default,,0,0,0,,最终输出每个商品的SKU编码
+Event: 0,0:00:17.00,0:00:21.00,Default,,0,0,0,,实现货架商品的智能识别
