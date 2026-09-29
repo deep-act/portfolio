@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>唐涵 · AI 工程师作品集</title>
+<title>个人作品集</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -167,7 +167,13 @@
   .project-card .card-link:hover { color: #6cb6ff; }
 
   /* Card themes */
-  .card-vision { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+  .card-vision { 
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%231a1a2e' width='200' height='200'/%3E%3Cg opacity='0.12'%3E%3Crect x='65' y='45' width='70' height='60' rx='12' fill='%234a9eff'/%3E%3Ccircle cx='82' cy='70' r='10' fill='%23fff'/%3E%3Ccircle cx='118' cy='70' r='10' fill='%23fff'/%3E%3Ccircle cx='82' cy='70' r='5' fill='%231a1a2e'/%3E%3Ccircle cx='118' cy='70' r='5' fill='%231a1a2e'/%3E%3Crect x='85' y='90' width='30' height='6' rx='3' fill='%23fff'/%3E%3Crect x='75' y='110' width='50' height='25' rx='8' fill='%234a9eff'/%3E%3Crect x='55' y='115' width='20' height='15' rx='7' fill='%234a9eff'/%3E%3Crect x='125' y='115' width='20' height='15' rx='7' fill='%234a9eff'/%3E%3Ccircle cx='85' cy='155' r='18' fill='%234a9eff'/%3E%3Ccircle cx='115' cy='155' r='18' fill='%234a9eff'/%3E%3Ccircle cx='85' cy='155' r='10' fill='%231a1a2e'/%3E%3Ccircle cx='115' cy='155' r='10' fill='%231a1a2e'/%3E%3Cline x1='100' y1='25' x2='100' y2='45' stroke='%234a9eff' stroke-width='4'/%3E%3Ccircle cx='100' cy='20' r='7' fill='%234a9eff'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 65%;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+  }
   .card-video { background: linear-gradient(145deg, #1a0a2e 0%, #2d1b69 50%, #11001c 100%); }
   .card-3d { background: linear-gradient(145deg, #0a2e1a 0%, #1b6940 50%, #001c11 100%); }
   .card-agent { background: linear-gradient(145deg, #2e1a0a 0%, #69401b 50%, #1c1100 100%); }
@@ -341,7 +347,7 @@
 
 <!-- LocalNav -->
 <nav class="lnav">
-  <span class="logo">唐汉</span>
+  <span class="logo">PORTFOLIO</span>
   <div class="nav-links">
     <a href="#projects">作品</a>
     <a href="#about">关于</a>
@@ -358,12 +364,12 @@
     <div class="hero-intro-card fade-in">
       <!-- 个人照片 -->
       <div class="profile-photo-wrapper">
-        <img src="profile-photo.png" alt="唐涵" class="profile-photo">
+        <img src="profile-photo.png" alt="Profile" class="profile-photo">
       </div>
       <div class="hero-intro-bg"></div>
       <div class="hero-intro-content">
         <h3 style="font-size:1.2em;">关于我</h3>
-        <p style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:12px;">tanghan_2019@163.com</p>
+        <p style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:12px;">your-email@example.com</p>
         <p>清华数学系博士，两年 AI 大模型工程经验。专注于将前沿 AI 研究转化为可落地的工程系统。</p>
       </div>
     </div>
@@ -390,7 +396,7 @@
       </div>
     </div>
 
-    <p style="font-size:13px;color:#86868b;margin-top:32px;margin-bottom:16px;font-weight:700;">技术方向：</p>
+    <p style="font-size:13px;color:#86868b;margin-top:32px;margin-bottom:16px;font-weight:900;">技术方向：</p>
     <div class="skills-grid">
       <span class="skill-tag">多模态大模型</span>
       <span class="skill-tag">模型微调</span>
@@ -420,12 +426,11 @@
   <!-- Project 1: 货架商品智能识别系统 -->
   <a href="project-multi-agent.html" class="project-card fade-in card-vision">
     <div class="card-bg">
-      <div class="card-icon">🤖</div>
     </div>
     <div class="card-content">
-      <p class="card-eyebrow">项目 01 · 货架商品智能识别系统</p>
-      <h3 class="card-title">货架商品，<br/>智能识别。</h3>
-      <p class="card-desc">基于多智能体流水线，实现货架商品从检测→检索→OCR→VLM 的全流程自动化识别。覆盖 5,565 类 SKU，支持相似商品分辨。</p>
+      <p class="card-eyebrow" style="font-size:20px;">项目 一 · 商超商品智能识别系统</p>
+      <h3 class="card-title"></h3>
+      <p class="card-desc">基于多智能体流水线，实现货架商品从检测→检索→OCR 的全流程自动化识别。</p>
       <span class="card-link">深入了解</span>
     </div>
   </a>

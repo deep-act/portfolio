@@ -2,7 +2,7 @@
 # 作品集一键更新脚本
 # 用法: ./update.sh "更新说明"
 
-cd /ya/Code/tanghan/portfolio
+cd "$(dirname "$0")"
 
 # 如果有参数，用参数作为提交信息；否则用默认信息
 MSG="${1:-更新作品集内容}"
