@@ -1,0 +1,752 @@
+[09-16 07:30:16] ==== gen_videos.sh 启动 (PID 1318277) ====
+[09-16 07:30:16] GPU 忙 (free=2003MiB)，60s 后重查
+[09-16 07:31:16] GPU 忙 (free=2003MiB)，60s 后重查
+[09-16 07:32:16] GPU 忙 (free=2003MiB)，60s 后重查
+[09-16 07:33:16] GPU 忙 (free=2003MiB)，60s 后重查
+[09-16 07:34:16] GPU free=22057MiB >= 18000MiB，开始生成
+[09-16 07:34:16] 生成 [trl] 第 1 次尝试 ...
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+WARNING:ltx_core.loader.single_gpu_model_builder:Uninitialized parameters or buffers: ['video_modality_emb', 'audio_modality_emb', 'video_input_proj.weight', 'video_input_proj.bias', 'audio_input_proj.weight', 'audio_input_proj.bias', 'attention_pooler.query_tokens', 'attention_pooler.cross_attn.in_proj_weight', 'attention_pooler.cross_attn.in_proj_bias', 'attention_pooler.cross_attn.out_proj.weight', 'attention_pooler.cross_attn.out_proj.bias', 'mlp_hidden.weight', 'mlp_hidden.bias', 'mlp_out.weight', 'mlp_out.bias']
+INFO:ltx_pipelines.utils.blocks:No DurationHead weights found in /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors; auto-duration prediction unavailable.
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+INFO:ltx_pipelines.utils.blocks:Building text encoder from /ya/Code/tanghan/LTX-2/models/gemma-3-12b-ltx
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 367, in <module>
+    main()
+  File "/ya/Code/tanghan/LTX-2/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 340, in main
+    result = pipeline(
+             ^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 223, in __call__
+    (ctx_p,) = self.prompt_encoder(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/utils/blocks.py", line 814, in __call__
+    with self._text_encoder_ctx() as text_encoder:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/utils/blocks.py", line 208, in _streaming_model
+    wrapped = builder.build(device=target_device, dtype=dtype)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-core/src/ltx_core/block_streaming/builder.py", line 264, in build
+    self._load_non_block_weights(meta_model, non_block_keys, device, dtype, non_block_loras)
+  File "/ya/Code/tanghan/LTX-2/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-core/src/ltx_core/block_streaming/builder.py", line 427, in _load_non_block_weights
+    non_block_sd = {key: tensor.to(dtype=dtype) for key, tensor in loaded.sd.items()}
+                         ^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.88 GiB. GPU 0 has a total capacity of 23.65 GiB of which 1.85 GiB is free. Process 1390273 has 734.00 MiB memory in use. Process 1187698 has 1.38 GiB memory in use. Process 1651438 has 8.43 GiB memory in use. Process 1650873 has 11.21 GiB memory in use. Of the allocated memory 7.98 GiB is allocated by PyTorch, and 11.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[09-16 07:35:59] ❌ [trl] 失败(可能显存不足/被抢占)，300s 后重试
+[09-16 07:40:59] GPU 忙 (free=3273MiB)，60s 后重查
+[09-16 07:41:59] GPU 忙 (free=3273MiB)，60s 后重查
+[09-16 07:42:59] GPU 忙 (free=3273MiB)，60s 后重查
+[09-16 07:43:59] GPU free=22057MiB >= 18000MiB，开始生成
+[09-16 07:43:59] 生成 [trl] 第 2 次尝试 ...
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+WARNING:ltx_core.loader.single_gpu_model_builder:Uninitialized parameters or buffers: ['video_modality_emb', 'audio_modality_emb', 'video_input_proj.weight', 'video_input_proj.bias', 'audio_input_proj.weight', 'audio_input_proj.bias', 'attention_pooler.query_tokens', 'attention_pooler.cross_attn.in_proj_weight', 'attention_pooler.cross_attn.in_proj_bias', 'attention_pooler.cross_attn.out_proj.weight', 'attention_pooler.cross_attn.out_proj.bias', 'mlp_hidden.weight', 'mlp_hidden.bias', 'mlp_out.weight', 'mlp_out.bias']
+INFO:ltx_pipelines.utils.blocks:No DurationHead weights found in /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors; auto-duration prediction unavailable.
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+INFO:ltx_pipelines.utils.blocks:Building text encoder from /ya/Code/tanghan/LTX-2/models/gemma-3-12b-ltx
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 367, in <module>
+    main()
+  File "/ya/Code/tanghan/LTX-2/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 340, in main
+    result = pipeline(
+             ^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 223, in __call__
+    (ctx_p,) = self.prompt_encoder(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/utils/blocks.py", line 814, in __call__
+    with self._text_encoder_ctx() as text_encoder:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/utils/blocks.py", line 208, in _streaming_model
+    wrapped = builder.build(device=target_device, dtype=dtype)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-core/src/ltx_core/block_streaming/builder.py", line 264, in build
+    self._load_non_block_weights(meta_model, non_block_keys, device, dtype, non_block_loras)
+  File "/ya/Code/tanghan/LTX-2/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-core/src/ltx_core/block_streaming/builder.py", line 427, in _load_non_block_weights
+    non_block_sd = {key: tensor.to(dtype=dtype) for key, tensor in loaded.sd.items()}
+                         ^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.88 GiB. GPU 0 has a total capacity of 23.65 GiB of which 1.85 GiB is free. Process 1390273 has 734.00 MiB memory in use. Process 1187698 has 1.38 GiB memory in use. Process 1672073 has 8.43 GiB memory in use. Process 1670177 has 11.21 GiB memory in use. Of the allocated memory 7.98 GiB is allocated by PyTorch, and 11.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[09-16 07:45:42] ❌ [trl] 失败(可能显存不足/被抢占)，300s 后重试
+[09-16 07:47:05] ==== gen_videos.sh 启动 (PID 4113321) ====
+[09-16 07:47:05] GPU free=11071MiB >= 11000MiB，开始生成
+[09-16 07:47:05] 生成 [trl] 第 1 次尝试 ...
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+WARNING:ltx_core.loader.single_gpu_model_builder:Uninitialized parameters or buffers: ['video_modality_emb', 'audio_modality_emb', 'video_input_proj.weight', 'video_input_proj.bias', 'audio_input_proj.weight', 'audio_input_proj.bias', 'attention_pooler.query_tokens', 'attention_pooler.cross_attn.in_proj_weight', 'attention_pooler.cross_attn.in_proj_bias', 'attention_pooler.cross_attn.out_proj.weight', 'attention_pooler.cross_attn.out_proj.bias', 'mlp_hidden.weight', 'mlp_hidden.bias', 'mlp_out.weight', 'mlp_out.bias']
+INFO:ltx_pipelines.utils.blocks:No DurationHead weights found in /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors; auto-duration prediction unavailable.
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+INFO:ltx_pipelines.utils.blocks:Building text encoder from /ya/Code/tanghan/LTX-2/models/gemma-3-12b-ltx
+INFO:ltx_pipelines.utils.blocks:Text encoder done, building embeddings processor from ('/ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors',)
+INFO:ltx_pipelines.utils.blocks:Prompt encoding complete
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (8 steps, 384x256 49 frames @ 24.0 fps)
+  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:04<00:34,  4.87s/it] 25%|██▌       | 2/8 [00:05<00:14,  2.42s/it] 38%|███▊      | 3/8 [00:06<00:08,  1.64s/it] 50%|█████     | 4/8 [00:06<00:05,  1.27s/it] 62%|██████▎   | 5/8 [00:07<00:03,  1.07s/it] 75%|███████▌  | 6/8 [00:08<00:01,  1.06it/s] 88%|████████▊ | 7/8 [00:09<00:00,  1.15it/s]100%|██████████| 8/8 [00:09<00:00,  1.23it/s]100%|██████████| 8/8 [00:09<00:00,  1.23s/it]
+INFO:ltx_pipelines.utils.blocks:Building video encoder + spatial upsampler from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-spatial-upscaler-x2-1.0.safetensors
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (3 steps, 768x512 49 frames @ 24.0 fps)
+  0%|          | 0/3 [00:00<?, ?it/s][09-16 07:50:42] GPU 忙 (free=773MiB)，60s 后重查
+ 33%|███▎      | 1/3 [00:02<00:05,  2.65s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.51s/it]100%|██████████| 3/3 [00:04<00:00,  1.15s/it]100%|██████████| 3/3 [00:04<00:00,  1.36s/it]
+INFO:ltx_pipelines.utils.blocks:Building video decoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_pipelines.utils.blocks:Building audio decoder + vocoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  4.26it/s]
+INFO:ltx_pipelines.utils.media_io.encode:Video saved to /ya/Code/tanghan/portfolio/assets/gen/trl.mp4
+[09-16 07:50:51] ✅ [trl] 完成 -> /ya/Code/tanghan/portfolio/assets/gen/trl.mp4
+[09-16 07:50:51] GPU free=11071MiB >= 11000MiB，开始生成
+[09-16 07:50:51] 生成 [vla] 第 1 次尝试 ...
+[09-16 07:51:42] GPU 忙 (free=773MiB)，60s 后重查
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+WARNING:ltx_core.loader.single_gpu_model_builder:Uninitialized parameters or buffers: ['video_modality_emb', 'audio_modality_emb', 'video_input_proj.weight', 'video_input_proj.bias', 'audio_input_proj.weight', 'audio_input_proj.bias', 'attention_pooler.query_tokens', 'attention_pooler.cross_attn.in_proj_weight', 'attention_pooler.cross_attn.in_proj_bias', 'attention_pooler.cross_attn.out_proj.weight', 'attention_pooler.cross_attn.out_proj.bias', 'mlp_hidden.weight', 'mlp_hidden.bias', 'mlp_out.weight', 'mlp_out.bias']
+INFO:ltx_pipelines.utils.blocks:No DurationHead weights found in /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors; auto-duration prediction unavailable.
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+INFO:ltx_pipelines.utils.blocks:Building text encoder from /ya/Code/tanghan/LTX-2/models/gemma-3-12b-ltx
+[09-16 07:52:42] GPU 忙 (free=773MiB)，60s 后重查
+INFO:ltx_pipelines.utils.blocks:Text encoder done, building embeddings processor from ('/ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors',)
+INFO:ltx_pipelines.utils.blocks:Prompt encoding complete
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+[09-16 07:53:42] GPU 忙 (free=773MiB)，60s 后重查
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (8 steps, 384x256 49 frames @ 24.0 fps)
+  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:03<00:25,  3.61s/it] 25%|██▌       | 2/8 [00:04<00:11,  1.90s/it] 38%|███▊      | 3/8 [00:05<00:06,  1.35s/it] 50%|█████     | 4/8 [00:05<00:04,  1.10s/it] 62%|██████▎   | 5/8 [00:06<00:02,  1.05it/s] 75%|███████▌  | 6/8 [00:07<00:01,  1.15it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.22it/s]100%|██████████| 8/8 [00:08<00:00,  1.28it/s]100%|██████████| 8/8 [00:08<00:00,  1.07s/it]
+INFO:ltx_pipelines.utils.blocks:Building video encoder + spatial upsampler from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-spatial-upscaler-x2-1.0.safetensors
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+[09-16 07:54:42] GPU 忙 (free=773MiB)，60s 后重查
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (3 steps, 768x512 49 frames @ 24.0 fps)
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:02<00:05,  2.77s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.18s/it]100%|██████████| 3/3 [00:04<00:00,  1.40s/it]
+INFO:ltx_pipelines.utils.blocks:Building video decoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_pipelines.utils.blocks:Building audio decoder + vocoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  3.74it/s]
+INFO:ltx_pipelines.utils.media_io.encode:Video saved to /ya/Code/tanghan/portfolio/assets/gen/vla.mp4
+[09-16 07:55:00] ✅ [vla] 完成 -> /ya/Code/tanghan/portfolio/assets/gen/vla.mp4
+[09-16 07:55:00] GPU free=11071MiB >= 11000MiB，开始生成
+[09-16 07:55:00] 生成 [rlinf] 第 1 次尝试 ...
+[09-16 07:55:42] GPU 忙 (free=773MiB)，60s 后重查
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+WARNING:ltx_core.loader.single_gpu_model_builder:Uninitialized parameters or buffers: ['video_modality_emb', 'audio_modality_emb', 'video_input_proj.weight', 'video_input_proj.bias', 'audio_input_proj.weight', 'audio_input_proj.bias', 'attention_pooler.query_tokens', 'attention_pooler.cross_attn.in_proj_weight', 'attention_pooler.cross_attn.in_proj_bias', 'attention_pooler.cross_attn.out_proj.weight', 'attention_pooler.cross_attn.out_proj.bias', 'mlp_hidden.weight', 'mlp_hidden.bias', 'mlp_out.weight', 'mlp_out.bias']
+INFO:ltx_pipelines.utils.blocks:No DurationHead weights found in /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors; auto-duration prediction unavailable.
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+INFO:ltx_pipelines.utils.blocks:Building text encoder from /ya/Code/tanghan/LTX-2/models/gemma-3-12b-ltx
+[09-16 07:56:42] GPU 忙 (free=773MiB)，60s 后重查
+INFO:ltx_pipelines.utils.blocks:Text encoder done, building embeddings processor from ('/ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors',)
+INFO:ltx_pipelines.utils.blocks:Prompt encoding complete
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+[09-16 07:57:42] GPU 忙 (free=773MiB)，60s 后重查
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (8 steps, 384x256 49 frames @ 24.0 fps)
+  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:03<00:23,  3.30s/it] 25%|██▌       | 2/8 [00:04<00:10,  1.78s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.29s/it] 50%|█████     | 4/8 [00:05<00:04,  1.06s/it] 62%|██████▎   | 5/8 [00:06<00:02,  1.07it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.17it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.24it/s]100%|██████████| 8/8 [00:08<00:00,  1.29it/s]100%|██████████| 8/8 [00:08<00:00,  1.03s/it]
+INFO:ltx_pipelines.utils.blocks:Building video encoder + spatial upsampler from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-spatial-upscaler-x2-1.0.safetensors
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+[09-16 07:58:43] GPU 忙 (free=773MiB)，60s 后重查
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (3 steps, 768x512 49 frames @ 24.0 fps)
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:03<00:07,  3.64s/it] 67%|██████▋   | 2/3 [00:04<00:01,  1.92s/it]100%|██████████| 3/3 [00:05<00:00,  1.37s/it]100%|██████████| 3/3 [00:05<00:00,  1.69s/it]
+INFO:ltx_pipelines.utils.blocks:Building video decoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_pipelines.utils.blocks:Building audio decoder + vocoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  3.84it/s]
+INFO:ltx_pipelines.utils.media_io.encode:Video saved to /ya/Code/tanghan/portfolio/assets/gen/rlinf.mp4
+[09-16 07:59:15] ✅ [rlinf] 完成 -> /ya/Code/tanghan/portfolio/assets/gen/rlinf.mp4
+[09-16 07:59:15] ==== 全部任务结束 ====
+[09-16 07:59:43] GPU 忙 (free=773MiB)，60s 后重查
+[09-16 08:00:43] GPU 忙 (free=773MiB)，60s 后重查
+[09-16 08:01:43] GPU 忙 (free=773MiB)，60s 后重查
+[09-16 08:02:43] GPU 忙 (free=773MiB)，60s 后重查
+[09-16 08:03:43] GPU 忙 (free=773MiB)，60s 后重查
+[09-16 08:04:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:05:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:06:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:07:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:08:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:09:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:10:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:11:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:12:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:13:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:14:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:15:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:16:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:17:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:18:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:19:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:20:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:21:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:22:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:23:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:24:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:25:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:26:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:27:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:28:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:29:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:30:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:31:43] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:32:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:33:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:34:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:35:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:36:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:37:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:38:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:39:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:40:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:41:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:42:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:43:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:44:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:45:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:46:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:47:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:48:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:49:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:50:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:51:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:52:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:53:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:54:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:55:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:56:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:57:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:58:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 08:59:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:00:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:01:44] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:02:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:03:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:04:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:05:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:06:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:07:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:08:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:09:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:10:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:11:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:12:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:13:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:14:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:15:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:16:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:17:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:18:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:19:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:20:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:21:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:22:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:23:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:24:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:25:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:26:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:27:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:28:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:29:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:30:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:31:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:32:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:33:45] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:34:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:35:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:36:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:37:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:38:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:39:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:40:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:41:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:42:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:43:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:44:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:45:46] GPU 忙 (free=2505MiB)，60s 后重查
+[09-16 09:46:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:47:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:48:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:49:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:50:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:51:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:52:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:53:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:54:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:55:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:56:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:57:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:58:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 09:59:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:00:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:01:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:02:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:03:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:04:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:05:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:06:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:07:46] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:08:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:09:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:10:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:11:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:12:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:13:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:14:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:15:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:16:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:17:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:18:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:19:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:20:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:21:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:22:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:23:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:24:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:25:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:26:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:27:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:28:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:29:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:30:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:31:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:32:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:33:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:34:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:35:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:36:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:37:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:38:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:39:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:40:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:41:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:42:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:43:47] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:44:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:45:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:46:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:47:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:48:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:49:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:50:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:51:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:52:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:53:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:54:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:55:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:56:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:57:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:58:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 10:59:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:00:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:01:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:02:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:03:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:04:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:05:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:06:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:07:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:08:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:09:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:10:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:11:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:12:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:13:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:14:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:15:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:16:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:17:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:18:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:19:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:20:48] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:21:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:22:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:23:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:24:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:25:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:26:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:27:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:28:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:29:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:30:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:31:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:32:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:33:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:34:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:35:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:36:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:37:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:38:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:39:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:40:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:41:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:42:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:43:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:44:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:45:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:46:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:47:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:48:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:49:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:50:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:51:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:52:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:53:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:54:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:55:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:56:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:57:49] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:58:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 11:59:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:00:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:01:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:02:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:03:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:04:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:05:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:06:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:07:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:08:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:09:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:10:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:11:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:12:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:13:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:14:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:15:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:16:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:17:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:18:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:19:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:20:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:21:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:22:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:23:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:24:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:25:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:26:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:27:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:28:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:29:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:30:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:31:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:32:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:33:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:34:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:35:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:36:50] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:37:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:38:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:39:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:40:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:41:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:42:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:43:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:44:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:45:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:46:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:47:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:48:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:49:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:50:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:51:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:52:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:53:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:54:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:55:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:56:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:57:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:58:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 12:59:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:00:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:01:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:02:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:03:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:04:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:05:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:06:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:07:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:08:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:09:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:10:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:11:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:12:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:13:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:14:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:15:51] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:16:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:17:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:18:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:19:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:20:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:21:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:22:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:23:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:24:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:25:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:26:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:27:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:28:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:29:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:30:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:31:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:32:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:33:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:34:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:35:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:36:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:37:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:38:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:39:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:40:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:41:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:42:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:43:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:44:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:45:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:46:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:47:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:48:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:49:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:50:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:51:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:52:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:53:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:54:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:55:52] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:56:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:57:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:58:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 13:59:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:00:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:01:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:02:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:03:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:04:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:05:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:06:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:07:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:08:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:09:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:10:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:11:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:12:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:13:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:14:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:15:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:16:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:17:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:18:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:19:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:20:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:21:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:22:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:23:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:24:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:25:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:26:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:27:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:28:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:29:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:30:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:31:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:32:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:33:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:34:53] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:35:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:36:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:37:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:38:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:39:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:40:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:41:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:42:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:43:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:44:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:45:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:46:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:47:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:48:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:49:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:50:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:51:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:52:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:53:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:54:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:55:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:56:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:57:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:58:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 14:59:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:00:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:01:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:02:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:03:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:04:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:05:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:06:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:07:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:08:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:09:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:10:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:11:54] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:12:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:13:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:14:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:15:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:16:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:17:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:18:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:19:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:20:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:21:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:22:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:23:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:24:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:25:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:26:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:27:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:28:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:29:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:30:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:31:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:32:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:33:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:34:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:35:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:36:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:37:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:38:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:39:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:40:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:41:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:42:55] GPU 忙 (free=2503MiB)，60s 后重查
+[09-16 15:43:55] GPU free=22057MiB >= 18000MiB，开始生成
+[09-16 15:43:55] 生成 [trl] 第 3 次尝试 ...
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+WARNING:ltx_core.loader.single_gpu_model_builder:Uninitialized parameters or buffers: ['video_modality_emb', 'audio_modality_emb', 'video_input_proj.weight', 'video_input_proj.bias', 'audio_input_proj.weight', 'audio_input_proj.bias', 'attention_pooler.query_tokens', 'attention_pooler.cross_attn.in_proj_weight', 'attention_pooler.cross_attn.in_proj_bias', 'attention_pooler.cross_attn.out_proj.weight', 'attention_pooler.cross_attn.out_proj.bias', 'mlp_hidden.weight', 'mlp_hidden.bias', 'mlp_out.weight', 'mlp_out.bias']
+INFO:ltx_pipelines.utils.blocks:No DurationHead weights found in /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors; auto-duration prediction unavailable.
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+INFO:ltx_pipelines.utils.blocks:Building text encoder from /ya/Code/tanghan/LTX-2/models/gemma-3-12b-ltx
+INFO:ltx_pipelines.utils.blocks:Text encoder done, building embeddings processor from ('/ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors',)
+INFO:ltx_pipelines.utils.blocks:Prompt encoding complete
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (8 steps, 384x256 49 frames @ 24.0 fps)
+  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:03<00:27,  3.91s/it] 25%|██▌       | 2/8 [00:04<00:12,  2.02s/it] 38%|███▊      | 3/8 [00:05<00:07,  1.42s/it] 50%|█████     | 4/8 [00:06<00:04,  1.14s/it] 62%|██████▎   | 5/8 [00:06<00:02,  1.02it/s] 75%|███████▌  | 6/8 [00:07<00:01,  1.12it/s] 88%|████████▊ | 7/8 [00:08<00:00,  1.21it/s]100%|██████████| 8/8 [00:08<00:00,  1.27it/s]100%|██████████| 8/8 [00:08<00:00,  1.11s/it]
+INFO:ltx_pipelines.utils.blocks:Building video encoder + spatial upsampler from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-spatial-upscaler-x2-1.0.safetensors
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (3 steps, 768x512 49 frames @ 24.0 fps)
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:03<00:07,  3.52s/it] 67%|██████▋   | 2/3 [00:04<00:01,  1.87s/it]100%|██████████| 3/3 [00:04<00:00,  1.35s/it]100%|██████████| 3/3 [00:04<00:00,  1.65s/it]
+INFO:ltx_pipelines.utils.blocks:Building video decoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_pipelines.utils.blocks:Building audio decoder + vocoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  3.16it/s]
+INFO:ltx_pipelines.utils.media_io.encode:Video saved to /ya/Code/tanghan/portfolio/assets/gen/trl.mp4
+[09-16 15:48:31] ✅ [trl] 完成 -> /ya/Code/tanghan/portfolio/assets/gen/trl.mp4
+[09-16 15:48:31] GPU free=22057MiB >= 18000MiB，开始生成
+[09-16 15:48:31] 生成 [vla] 第 1 次尝试 ...
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+WARNING:ltx_core.loader.single_gpu_model_builder:Uninitialized parameters or buffers: ['video_modality_emb', 'audio_modality_emb', 'video_input_proj.weight', 'video_input_proj.bias', 'audio_input_proj.weight', 'audio_input_proj.bias', 'attention_pooler.query_tokens', 'attention_pooler.cross_attn.in_proj_weight', 'attention_pooler.cross_attn.in_proj_bias', 'attention_pooler.cross_attn.out_proj.weight', 'attention_pooler.cross_attn.out_proj.bias', 'mlp_hidden.weight', 'mlp_hidden.bias', 'mlp_out.weight', 'mlp_out.bias']
+INFO:ltx_pipelines.utils.blocks:No DurationHead weights found in /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors; auto-duration prediction unavailable.
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+INFO:ltx_pipelines.utils.blocks:Building text encoder from /ya/Code/tanghan/LTX-2/models/gemma-3-12b-ltx
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 367, in <module>
+    main()
+  File "/ya/Code/tanghan/LTX-2/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 340, in main
+    result = pipeline(
+             ^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 223, in __call__
+    (ctx_p,) = self.prompt_encoder(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/utils/blocks.py", line 814, in __call__
+    with self._text_encoder_ctx() as text_encoder:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/share/uv/python/cpython-3.12.14-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-pipelines/src/ltx_pipelines/utils/blocks.py", line 208, in _streaming_model
+    wrapped = builder.build(device=target_device, dtype=dtype)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-core/src/ltx_core/block_streaming/builder.py", line 264, in build
+    self._load_non_block_weights(meta_model, non_block_keys, device, dtype, non_block_loras)
+  File "/ya/Code/tanghan/LTX-2/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-core/src/ltx_core/block_streaming/builder.py", line 426, in _load_non_block_weights
+    loaded = load_state_dict(self.model_path, self.model_loader, self.registry, device, non_block_sd_ops)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-core/src/ltx_core/loader/helpers.py", line 40, in load_state_dict
+    result = loader.load(path_list, sd_ops=sd_ops, device=device)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-core/src/ltx_core/loader/sft_loader.py", line 77, in load
+    return self.weight_loader.load(path, sd_ops, device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ya/Code/tanghan/LTX-2/packages/ltx-core/src/ltx_core/loader/sft_loader.py", line 36, in load
+    value = f.get_tensor(name).to(device=device, non_blocking=True, copy=False)
+            ^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 23.65 GiB of which 20.00 MiB is free. Process 1390273 has 734.00 MiB memory in use. Process 1187698 has 1.38 GiB memory in use. Process 2874700 has 1.33 GiB memory in use. Process 2875430 has 20.14 GiB memory in use. Of the allocated memory 967.65 MiB is allocated by PyTorch, and 14.35 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[09-16 15:50:40] ❌ [vla] 失败(可能显存不足/被抢占)，300s 后重试
+[09-16 15:55:40] GPU free=22057MiB >= 18000MiB，开始生成
+[09-16 15:55:40] 生成 [vla] 第 2 次尝试 ...
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+WARNING:ltx_core.loader.single_gpu_model_builder:Uninitialized parameters or buffers: ['video_modality_emb', 'audio_modality_emb', 'video_input_proj.weight', 'video_input_proj.bias', 'audio_input_proj.weight', 'audio_input_proj.bias', 'attention_pooler.query_tokens', 'attention_pooler.cross_attn.in_proj_weight', 'attention_pooler.cross_attn.in_proj_bias', 'attention_pooler.cross_attn.out_proj.weight', 'attention_pooler.cross_attn.out_proj.bias', 'mlp_hidden.weight', 'mlp_hidden.bias', 'mlp_out.weight', 'mlp_out.bias']
+INFO:ltx_pipelines.utils.blocks:No DurationHead weights found in /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors; auto-duration prediction unavailable.
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+INFO:ltx_pipelines.utils.blocks:Building text encoder from /ya/Code/tanghan/LTX-2/models/gemma-3-12b-ltx
+INFO:ltx_pipelines.utils.blocks:Text encoder done, building embeddings processor from ('/ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors',)
+INFO:ltx_pipelines.utils.blocks:Prompt encoding complete
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (8 steps, 384x256 49 frames @ 24.0 fps)
+  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:04<00:34,  4.93s/it] 25%|██▌       | 2/8 [00:05<00:14,  2.45s/it] 38%|███▊      | 3/8 [00:06<00:08,  1.65s/it] 50%|█████     | 4/8 [00:07<00:05,  1.28s/it] 62%|██████▎   | 5/8 [00:07<00:03,  1.07s/it] 75%|███████▌  | 6/8 [00:08<00:01,  1.06it/s] 88%|████████▊ | 7/8 [00:09<00:00,  1.15it/s]100%|██████████| 8/8 [00:09<00:00,  1.22it/s]100%|██████████| 8/8 [00:09<00:00,  1.24s/it]
+INFO:ltx_pipelines.utils.blocks:Building video encoder + spatial upsampler from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-spatial-upscaler-x2-1.0.safetensors
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (3 steps, 768x512 49 frames @ 24.0 fps)
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:02<00:04,  2.35s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.41s/it]100%|██████████| 3/3 [00:03<00:00,  1.11s/it]100%|██████████| 3/3 [00:03<00:00,  1.29s/it]
+INFO:ltx_pipelines.utils.blocks:Building video decoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_pipelines.utils.blocks:Building audio decoder + vocoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  3.75it/s]
+INFO:ltx_pipelines.utils.media_io.encode:Video saved to /ya/Code/tanghan/portfolio/assets/gen/vla.mp4
+[09-16 15:59:38] ✅ [vla] 完成 -> /ya/Code/tanghan/portfolio/assets/gen/vla.mp4
+[09-16 15:59:38] GPU 忙 (free=12887MiB)，60s 后重查
+[09-16 16:00:38] GPU free=22057MiB >= 18000MiB，开始生成
+[09-16 16:00:38] 生成 [rlinf] 第 1 次尝试 ...
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+WARNING:ltx_core.loader.single_gpu_model_builder:Uninitialized parameters or buffers: ['video_modality_emb', 'audio_modality_emb', 'video_input_proj.weight', 'video_input_proj.bias', 'audio_input_proj.weight', 'audio_input_proj.bias', 'attention_pooler.query_tokens', 'attention_pooler.cross_attn.in_proj_weight', 'attention_pooler.cross_attn.in_proj_bias', 'attention_pooler.cross_attn.out_proj.weight', 'attention_pooler.cross_attn.out_proj.bias', 'mlp_hidden.weight', 'mlp_hidden.bias', 'mlp_out.weight', 'mlp_out.bias']
+INFO:ltx_pipelines.utils.blocks:No DurationHead weights found in /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors; auto-duration prediction unavailable.
+INFO:ltx_pipelines.utils.constants:Checkpoint declares model_version=unknown (parsed as ())
+INFO:ltx_pipelines.utils.blocks:Building text encoder from /ya/Code/tanghan/LTX-2/models/gemma-3-12b-ltx
+INFO:ltx_pipelines.utils.blocks:Text encoder done, building embeddings processor from ('/ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors',)
+INFO:ltx_pipelines.utils.blocks:Prompt encoding complete
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (8 steps, 384x256 49 frames @ 24.0 fps)
+  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:04<00:31,  4.48s/it] 25%|██▌       | 2/8 [00:05<00:13,  2.27s/it] 38%|███▊      | 3/8 [00:05<00:07,  1.57s/it] 50%|█████     | 4/8 [00:06<00:04,  1.23s/it] 62%|██████▎   | 5/8 [00:07<00:03,  1.05s/it] 75%|███████▌  | 6/8 [00:08<00:01,  1.06it/s] 88%|████████▊ | 7/8 [00:08<00:00,  1.15it/s]100%|██████████| 8/8 [00:09<00:00,  1.22it/s]100%|██████████| 8/8 [00:09<00:00,  1.19s/it]
+INFO:ltx_pipelines.utils.blocks:Building video encoder + spatial upsampler from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-spatial-upscaler-x2-1.0.safetensors
+INFO:ltx_pipelines.utils.blocks:Building transformer (streaming) from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_core.model.transformer.model:Building transformer with attention backends -- self: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH], masked: SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]
+INFO:ltx_pipelines.utils.blocks:Running denoising loop (3 steps, 768x512 49 frames @ 24.0 fps)
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:02<00:04,  2.25s/it] 67%|██████▋   | 2/3 [00:02<00:01,  1.35s/it]100%|██████████| 3/3 [00:03<00:00,  1.06s/it]100%|██████████| 3/3 [00:03<00:00,  1.23s/it]
+INFO:ltx_pipelines.utils.blocks:Building video decoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+INFO:ltx_pipelines.utils.blocks:Building audio decoder + vocoder from /ya/Code/tanghan/LTX-2/models/LTX-2/ltx-2-19b-distilled.safetensors
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  4.01it/s]
+INFO:ltx_pipelines.utils.media_io.encode:Video saved to /ya/Code/tanghan/portfolio/assets/gen/rlinf.mp4
+[09-16 16:04:26] ✅ [rlinf] 完成 -> /ya/Code/tanghan/portfolio/assets/gen/rlinf.mp4
+[09-16 16:04:26] ==== 全部任务结束 ====

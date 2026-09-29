@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>项目作品集 · AI / 强化学习 / 多模态</title>
+<style>
+  :root{--ink:#0f1526;--sub:#5b6478;--line:#e8ebf2;--bg:#f5f7fb;--brand:#3b5bdb;--brand2:#7048e8;--ok:#2b8a3e;--warn:#c2410c;--card:#fff}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}
+  body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--brand);text-decoration:none}
+
+  .hero{position:relative;height:78vh;min-height:500px;overflow:hidden;color:#fff;display:flex;align-items:flex-end}
+  .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,40,.30),rgba(10,16,40,.55) 55%,rgba(10,16,40,.93))}
+  .hero .cap{position:relative;z-index:2;padding:0 clamp(20px,6vw,90px) clamp(38px,8vh,74px);max-width:1000px}
+  .kicker{letter-spacing:.28em;text-transform:uppercase;font-size:12px;opacity:.9;margin:0 0 12px}
+  .hero h1{font-size:clamp(30px,5.5vw,54px);line-height:1.14;margin:0 0 16px;font-weight:800;text-shadow:0 2px 20px rgba(0,0,0,.35)}
+  .hero p{font-size:clamp(15px,1.6vw,19px);max-width:800px;opacity:.96;margin:0 0 20px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chips span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:6px 13px;border-radius:999px;font-size:13px;backdrop-filter:blur(6px)}
+
+  nav.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.top .in{max-width:1120px;margin:0 auto;padding:11px 20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13.5px}
+  nav.top b{margin-right:6px}
+  nav.top a{color:var(--sub);padding:5px 11px;border-radius:8px;font-weight:600}
+  nav.top a:hover{background:#eef2ff;color:var(--brand)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .theme{margin:40px 0 8px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  .theme h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand2);margin:0}
+  .theme p{margin:4px 0 0;color:var(--sub);font-size:14px}
+
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 28px rgba(20,30,60,.05);padding:24px clamp(18px,3vw,32px);margin:20px 0}
+  .head{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-bottom:3px}
+  .badge{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;flex:none}
+  .head h3{font-size:21px;margin:0}
+  .tagline{color:var(--sub);font-size:13.5px;margin:2px 0 16px}
+  .pill{font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px;margin-left:auto;white-space:nowrap}
+  .pill.biz{background:#fff0e6;color:#b3510a}.pill.rl{background:#e7f0ff;color:#1c46b0}.pill.gen{background:#f3e8ff;color:#6b21a8}.pill.ag{background:#e6f7ee;color:#1f7a3d}
+
+  .ps{display:grid;grid-template-columns:1fr 1.35fr;gap:12px;margin:4px 0 16px}
+  @media(max-width:720px){.ps{grid-template-columns:1fr}}
+  .ps .box{border-radius:12px;padding:12px 14px}
+  .ps .q{background:#fff5f2;border:1px solid #ffd9cc}.ps .s{background:#eef7ef;border:1px solid #cdeccd}
+  .ps .lbl{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+  .ps .q .lbl{color:#c2410c}.ps .s .lbl{color:#1f7a3d}
+  .ps p{margin:0;font-size:14px}
+
+  .grid{display:grid;gap:10px}
+  .g6{grid-template-columns:repeat(6,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1.4fr 1fr}
+  @media(max-width:820px){.g6{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}.g2{grid-template-columns:1fr}}
+  figure{margin:0;border-radius:11px;overflow:hidden;background:#0b1020;position:relative;border:1px solid var(--line)}
+  figure video,figure img{width:100%;display:block;object-fit:cover;background:#0b1020}
+  figure.sq video,figure.sq img{aspect-ratio:1/1}
+  figure img.chart{aspect-ratio:auto;object-fit:contain;background:#fff}
+  figure img.wide{aspect-ratio:16/9;object-fit:contain;background:#fff}
+  figcaption{position:absolute;left:0;right:0;bottom:0;font-size:11px;color:#fff;padding:15px 8px 6px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.78))}
+  figure .t{position:absolute;top:7px;left:7px;font-size:10.5px;padding:2px 7px;border-radius:6px;color:#fff;z-index:2}
+  .t.ok{background:var(--ok)}.t.bad{background:var(--warn)}.t.ai{background:#b3510a}.t.real{background:#1c46b0}
+
+  .bar{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+  .bar .st{flex:1;min-width:110px;border:1px solid var(--line);border-radius:11px;padding:10px;background:#fbfcfe;text-align:center}
+  .bar .v{font-size:20px;font-weight:800;color:var(--brand)}.bar .k{font-size:11.5px;color:var(--sub);margin-top:2px}
+  code.ev{display:block;white-space:pre-wrap;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:11.5px;margin-top:12px;color:#8a93a6}
+  footer{text-align:center;color:var(--sub);font-size:12.5px;padding:30px 20px 56px}
+  .more{background:#0f1526;color:#c7cee0;border-radius:16px;padding:20px 24px;margin:24px 0}
+  .more h4{margin:0 0 8px;color:#fff;font-size:15px}
+  .more .t2{display:flex;flex-wrap:wrap;gap:7px}
+  .more .t2 span{background:#1b2338;border:1px solid #2b3654;padding:5px 11px;border-radius:8px;font-size:12.5px}
+  .more .t2 span b{color:#8ea2ff}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <video autoplay muted loop playsinline><source src="assets/gen/vla.mp4" type="video/mp4"></video>
+  <div class="cap">
+    <p class="kicker">ML / RL / Multimodal · Portfolio</p>
+    <h1>把模型训起来，也把业务跑通</h1>
+    <p>覆盖零售商品视觉、强化学习与具身智能、多模态生成、Agent 框架四类共 8 个亲手落地/复现的项目。下方所有曲线、检测图、生成图、操作视频均为项目真实产出（个别主题短片由 LTX-2 生成并标注）。</p>
+    <div class="chips"><span>YOLO 检测</span><span>商品检索 Embedding</span><span>GRPO / RL</span><span>VLA · LIBERO</span><span>世界模型</span><span>多模态生成</span><span>Agent 二次开发</span></div>
+  </div>
+</div>
+
+<nav class="top"><div class="in">
+  <b>快速导航</b>
+  <a href="#biz">零售商品 AI</a><a href="#rl">强化学习 · 具身</a><a href="#mm">多模态生成</a><a href="#ag">Agent · 基础设施</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- ══════════ 主题一 零售商品 AI ══════════ -->
+<div class="theme" id="biz"><h2>① 零售商品 AI · 业务落地</h2><p>货架检测 + 以图搜图检索，真实商品数据、真实评估指标。</p></div>
+
+<section class="card">
+  <div class="head"><div class="badge">📦</div><h3>货架商品目标检测</h3><span class="pill biz">object_detection</span></div>
+  <p class="tagline">YOLOv8m · 层板 / 格口 / 商品多任务检测，配套数据整理→COCO 转换→可视化→模型卡工具链。</p>
+  <div class="ps">
+    <div class="box q"><div class="lbl">问题</div><p>零售货架需自动定位层板、格口与商品，人工巡检成本高、一致性差。</p></div>
+    <div class="box s"><div class="lbl">技术方案</div><p>多任务 YOLO 检测体系（4 类任务分别训练/评估），自写数据集整理、格式转换与结果可视化脚本，形成可复跑的训练—评估闭环。</p></div>
+  </div>
+  <div class="grid g4">
+    <figure class="sq"><span class="t real">真实推理</span><img src="assets/det/detect_pred.jpg"><figcaption>格口检测验证集</figcaption></figure>
+    <figure class="sq"><img src="assets/det/confusion_matrix.png"><figcaption>归一化混淆矩阵</figcaption></figure>
+    <figure class="sq"><img src="assets/det/train_curves.png"><figcaption>训练/验证曲线</figcaption></figure>
+    <figure class="sq"><img src="assets/det/labels.jpg"><figcaption>标签分布</figcaption></figure>
+  </div>
+  <div class="bar">
+    <div class="st"><div class="v">98.9%</div><div class="k">格口 mAP@50</div></div>
+    <div class="st"><div class="v">93.4%</div><div class="k">mAP@50-95</div></div>
+    <div class="st"><div class="v">4</div><div class="k">检测任务</div></div>
+    <div class="st"><div class="v">15.8k</div><div class="k">格口训练图</div></div>
+  </div>
+  <code class="ev">object_detection/runs/grid/…/results.csv · PROJECT_CONTEXT.md · tools/{visualization,reporting,dataset}</code>
+</section>
+
+<section class="card">
+  <div class="head"><div class="badge">🔎</div><h3>商品检索 Embedding</h3><span class="pill biz">Embedding</span></div>
+  <p class="tagline">对比学习微调 ViT，对比 CLS / GGeM / SALAD 三种 patch 聚合，FAISS 做 1800 类以图搜图。</p>
+  <div class="ps">
+    <div class="box q"><div class="lbl">问题</div><p>1800+ SKU 需精确"以图搜图"，仅用 CLS token 聚合时细粒度区分度不足。</p></div>
+    <div class="box s"><div class="lbl">技术方案</div><p>系统对比 Group-GeM 池化与 SALAD（Sinkhorn 最优传输聚合），在难负样本上做 margin/阈值分析，选最优聚合策略。</p></div>
+  </div>
+  <div class="grid g2">
+    <figure><span class="t real">真实评估</span><img class="chart" src="assets/emb/recall_bars.png"><figcaption>Top-1 / Top-5 准确率 · 聚合方法对比（comparison_report 绘制）</figcaption></figure>
+    <div class="bar" style="flex-direction:column">
+      <div class="st"><div class="v">95.7%</div><div class="k">SALAD Top-1</div></div>
+      <div class="st"><div class="v">99.8%</div><div class="k">Top-5</div></div>
+      <div class="st"><div class="v">+3.1pp</div><div class="k">vs ImageNet 基线</div></div>
+    </div>
+  </div>
+  <code class="ev">Embedding/AGGREGATION_EXPERIMENTS.md · outputs/train_1800c/comparison_report.json · outputs/analysis/*_metrics.txt</code>
+</section>
+
+<!-- ══════════ 主题二 强化学习 · 具身 ══════════ -->
+<div class="theme" id="rl"><h2>② 强化学习 · 具身智能</h2><p>从 LLM 推理 RL，到机器人操作策略、训练基础设施与世界模型。</p></div>
+
+<section class="card">
+  <div class="head"><div class="badge">🧠</div><h3>大模型强化学习（GRPO）</h3><span class="pill rl">TRL</span></div>
+  <p class="tagline">HuggingFace TRL · GRPOTrainer，Qwen3.5-2B + LoRA 在 GSM8K 数学题上做 RL 后训练。</p>
+  <div class="ps">
+    <div class="box q"><div class="lbl">问题</div><p>用 RL 提升大模型数学推理正确率，且要在单卡上高效微调。</p></div>
+    <div class="box s"><div class="lbl">技术方案</div><p>自写答案抽取 + 正确性奖励函数，GRPO 组内相对优势优化；LoRA 控显存，从手写分步实现到 v1→v3 迭代，实时监控 reward / KL / entropy 防崩坏。</p></div>
+  </div>
+  <div class="grid g2">
+    <figure><span class="t real">真实曲线</span><img class="chart" src="assets/trl/grpo_curve.png"><figcaption>GRPO 奖励 & KL 曲线（trainer_state 绘制）</figcaption></figure>
+    <figure class="sq"><span class="t ai">LTX-2 生成</span><video controls muted loop playsinline preload="metadata"><source src="assets/gen/trl.mp4" type="video/mp4"></video><figcaption>主题片：AI 解数学</figcaption></figure>
+  </div>
+  <div class="bar">
+    <div class="st"><div class="v">930</div><div class="k">GRPO 训练步</div></div>
+    <div class="st"><div class="v">0.40→0.55</div><div class="k">reward 提升</div></div>
+    <div class="st"><div class="v">0.75</div><div class="k">峰值 reward</div></div>
+    <div class="st"><div class="v">GSM8K</div><div class="k">数学推理基准</div></div>
+  </div>
+  <code class="ev">TRL/my_scripts/grpo_lora_v3.py · grpo_step_by_step.py · outputs/grpo-gsm8k-lora-v3/checkpoint-934/trainer_state.json</code>
+</section>
+
+<section class="card">
+  <div class="head"><div class="badge">🤖</div><h3>视觉-语言-动作策略 SmolVLA</h3><span class="pill rl">SmolVLA</span></div>
+  <p class="tagline">~450M VLA（SmolVLM2 骨干 + Flow-Matching 动作专家），LeRobot 框架，LIBERO 仿真。</p>
+  <div class="ps">
+    <div class="box q"><div class="lbl">问题</div><p>模仿学得的操作策略在长程多步任务上成功率很低——正是 RL 要补的短板。</p></div>
+    <div class="box s"><div class="lbl">技术方案</div><p>单卡 4090 在 LIBERO 200k 步训练 + 交互式实时仿真评测闭环，分套件量化定位长程失败，作为 RL 后训练目标。</p></div>
+  </div>
+  <div class="grid g4">
+    <figure class="sq"><span class="t ok">成功</span><video controls muted loop playsinline preload="metadata"><source src="assets/vla/object_alphabet_ok.mp4" type="video/mp4"></video><figcaption>抓取放入·物体</figcaption></figure>
+    <figure class="sq"><span class="t ok">成功</span><video controls muted loop playsinline preload="metadata"><source src="assets/vla/goal_stove_ok.mp4" type="video/mp4"></video><figcaption>碗放到灶上</figcaption></figure>
+    <figure class="sq"><span class="t ok">成功</span><video controls muted loop playsinline preload="metadata"><source src="assets/vla/spatial_0_ok.mp4" type="video/mp4"></video><figcaption>夹中间黑碗</figcaption></figure>
+    <figure class="sq"><span class="t bad">失败·长程</span><video controls muted loop playsinline preload="metadata"><source src="assets/vla/long10_fail.mp4" type="video/mp4"></video><figcaption>双物入篮·待 RL</figcaption></figure>
+  </div>
+  <div class="bar">
+    <div class="st"><div class="v">42%</div><div class="k">LIBERO 总成功率</div></div>
+    <div class="st"><div class="v">100%</div><div class="k">物体套件</div></div>
+    <div class="st"><div class="v">200k</div><div class="k">训练步数</div></div>
+    <div class="st"><div class="v">41</div><div class="k">真实 rollout 视频</div></div>
+  </div>
+  <code class="ev">SmolVLA/outputs/libero_interactive/FINAL_REPORT.md · *.mp4 · scripts/libero_interactive.py</code>
+</section>
+
+<section class="card">
+  <div class="head"><div class="badge">⚙️</div><h3>具身 RL 训练基础设施</h3><span class="pill rl">RLinf</span></div>
+  <p class="tagline">开源 RL 框架（PyTorch Ecosystem / Isaac Lab v3 采用），支持 GRPO/PPO/SAC。</p>
+  <div class="ps">
+    <div class="box q"><div class="lbl">问题</div><p>7B VLA 的 RL 微调在单张 24/48GB 卡上极易 OOM，全流程难跑通。</p></div>
+    <div class="box s"><div class="lbl">技术方案</div><p>定位全参 GRPO OOM 根因（优化器态 ~56GB 不被 offload）→ 改 LoRA GRPO；权重同步 IPC OOM → FSDP offload + 梯度检查点；四阶段流水线脚本化 + 断点续训。</p></div>
+  </div>
+  <div class="grid g2">
+    <figure><span class="t real">真实曲线</span><img class="chart" src="assets/rlinf/grpo_curve.png"><figcaption>GRPO success_once 曲线（metrics.log 绘制）</figcaption></figure>
+    <figure class="sq"><span class="t ai">LTX-2 生成</span><video controls muted loop playsinline preload="metadata"><source src="assets/gen/rlinf.mp4" type="video/mp4"></video><figcaption>主题片：RL 训练集群</figcaption></figure>
+  </div>
+  <div class="bar">
+    <div class="st"><div class="v">500</div><div class="k">真实 GRPO 步</div></div>
+    <div class="st"><div class="v">4</div><div class="k">SFT→RL 阶段</div></div>
+    <div class="st"><div class="v">1×GPU</div><div class="k">受限单卡跑通</div></div>
+    <div class="st"><div class="v">2.43×</div><div class="k">框架混合执行吞吐</div></div>
+  </div>
+  <code class="ev">RLinf/experiment_archive/EXPERIMENT_SUMMARY.md · medium_48g/…/rlinf_grpo/metrics.log</code>
+</section>
+
+<section class="card">
+  <div class="head"><div class="badge">🌐</div><h3>Nano 世界模型</h3><span class="pill rl">Nano World Model</span></div>
+  <p class="tagline">Diffusion-Forcing 世界模型（DiT + SD-VAE latent），单卡复现 point_maze 并对齐官方指标。</p>
+  <div class="ps">
+    <div class="box q"><div class="lbl">问题</div><p>真机采样昂贵，需要一个可学习的"仿真器"来支撑策略训练与规划。</p></div>
+    <div class="box s"><div class="lbl">技术方案</div><p>在 DINO-WM 数据集上用 Diffusion Forcing 训练视频世界模型，单卡 30k 步复现，逐指标对齐官方权重验证正确性。</p></div>
+  </div>
+  <div class="grid g3">
+    <figure class="sq"><span class="t real">真实生成</span><img src="assets/wm/csgo_100k_long_rollout.gif"><figcaption>长程 rollout 生成</figcaption></figure>
+    <figure class="sq"><img src="assets/wm/video_to_3d.gif"><figcaption>视频→3D 一致性</figcaption></figure>
+    <figure class="sq"><img src="assets/wm/grid_video.gif"><figcaption>动作可控生成</figcaption></figure>
+  </div>
+  <div class="bar">
+    <div class="st"><div class="v">36.9</div><div class="k">自训 PSNR (官方36.74)</div></div>
+    <div class="st"><div class="v">0.982</div><div class="k">SSIM ≈ 官方</div></div>
+    <div class="st"><div class="v">30k</div><div class="k">单卡复现步数</div></div>
+    <div class="st"><div class="v">~6h</div><div class="k">4090 训练时长</div></div>
+  </div>
+  <code class="ev">Nano World Model/REPRODUCTION_REPORT.md · assets/*.gif · results/rollout_official_ckpt/</code>
+</section>
+
+<!-- ══════════ 主题三 多模态生成 ══════════ -->
+<div class="theme" id="mm"><h2>③ 多模态生成与理解</h2><p>统一多模态模型单卡复现，文生图 + 视觉问答真实样例。</p></div>
+
+<section class="card">
+  <div class="head"><div class="badge">🎨</div><h3>Show-o 统一多模态模型</h3><span class="pill gen">Show-o</span></div>
+  <p class="tagline">单卡 24GB 复现统一"理解+生成"多模态模型，20 次真实训练/出图/理解实验并落盘留证。</p>
+  <div class="ps">
+    <div class="box q"><div class="lbl">问题</div><p>验证统一多模态模型（离散扩散图 + 自回归文）在单张 24GB 卡上的可复现性。</p></div>
+    <div class="box s"><div class="lbl">技术方案</div><p>ImageNet 文生图训练 + LLaVA 理解阶段冒烟，官方权重 vs 从零训对照，诚实记录 loss 平台与出图质量差异。</p></div>
+  </div>
+  <div class="grid g6">
+    <figure class="sq"><img src="assets/showo/gen_0.png"></figure>
+    <figure class="sq"><img src="assets/showo/gen_1.png"></figure>
+    <figure class="sq"><img src="assets/showo/gen_2.png"></figure>
+    <figure class="sq"><img src="assets/showo/gen_3.png"></figure>
+    <figure class="sq"><img src="assets/showo/gen_4.png"></figure>
+    <figure class="sq"><img src="assets/showo/gen_5.png"></figure>
+  </div>
+  <div class="grid g2" style="margin-top:10px">
+    <figure><span class="t real">真实生成</span><img class="wide" src="assets/showo/gen_0.png"><figcaption>文生图样例（本机训练权重产出）</figcaption></figure>
+    <figure><img class="wide" src="assets/showo/mmu_0.png"><figcaption>多模态理解 / MMMU 样例</figcaption></figure>
+  </div>
+  <div class="bar">
+    <div class="st"><div class="v">20</div><div class="k">真实运行次数</div></div>
+    <div class="st"><div class="v">24GB</div><div class="k">单卡约束</div></div>
+    <div class="st"><div class="v">图+文</div><div class="k">统一建模</div></div>
+    <div class="st"><div class="v">对照</div><div class="k">官方 vs 从零训</div></div>
+  </div>
+  <code class="ev">Show-o/EXPERIMENTS_24h.md（唯一事实来源）· outputs_24h/gen/quality_*/</code>
+</section>
+
+<!-- ══════════ 主题四 Agent · 基础设施 ══════════ -->
+<div class="theme" id="ag"><h2>④ Agent 框架 · 基础设施</h2><p>轻量 Agent 框架二次开发，与本地大模型服务配套。</p></div>
+
+<section class="card">
+  <div class="head"><div class="badge">🤝</div><h3>nanobot Agent 框架二次开发</h3><span class="pill ag">nanobot</span></div>
+  <p class="tagline">轻量开源 Agent 框架（Python + React WebUI），围绕 tool / skill 双扩展点与业务集成做二次开发。</p>
+  <div class="ps">
+    <div class="box q"><div class="lbl">问题</div><p>需要一个可自托管、可扩展的轻量 Agent 框架，接入自有工具与数据落地业务场景。</p></div>
+    <div class="box s"><div class="lbl">技术方案</div><p>理清 skills / tools 加载优先级与扩展点，开发自定义 tool+skill、数据库集成与电商订单分析工具链，并接入 MCP。</p></div>
+  </div>
+  <div class="grid g3">
+    <figure class="sq"><img class="chart" src="assets/nanobot/arch.png"><figcaption>框架架构</figcaption></figure>
+    <figure class="sq"><img src="assets/nanobot/workbench.png"><figcaption>WebUI 工作台</figcaption></figure>
+    <figure class="sq"><img src="assets/nanobot/apps.png"><figcaption>应用 / 自动化</figcaption></figure>
+  </div>
+  <div class="bar">
+    <div class="st"><div class="v">tool+skill</div><div class="k">双扩展点</div></div>
+    <div class="st"><div class="v">DB 集成</div><div class="k">订单分析 demo</div></div>
+    <div class="st"><div class="v">MCP</div><div class="k">工具协议接入</div></div>
+    <div class="st"><div class="v">WebUI</div><div class="k">React/TS</div></div>
+  </div>
+  <code class="ev">nanobot/docs/architecture.md · examples/sales-analysis-demo · nanobot/skills · agent/tools/loader.py</code>
+</section>
+
+<div class="more">
+  <h4>其他参与 / 复现过的项目</h4>
+  <div class="t2">
+    <span><b>NVIDIA Cosmos</b> 世界基础模型 24GB 复现</span>
+    <span><b>microduck_rl</b> 双足机器人 PPO·sim2real</span>
+    <span><b>modelopt</b> Qwen INT8 量化蒸馏</span>
+    <span><b>qwen35-multimodal-agent</b> 多模态 Agent·实时语音</span>
+    <span><b>nanochat</b> 全栈 LLM 训练</span>
+    <span><b>hermes-agent</b> 个人 Agent</span>
+    <span><b>llm-server</b> 本地 OpenAI 兼容服务</span>
+    <span><b>MCP</b> 协议实验</span>
+    <span><b>指纹库 / fine_tune</b> 商品属性 VLM 数据与微调</span>
+    <span><b>LTX-2</b> 音视频生成（本集主题片由此生成）</span>
+  </div>
+</div>
+
+  <footer>所有图表/检测图/生成图/操作视频均取自各项目实际运行产出，未用合成数据填充结果。<br>
+  标注 <b>LTX-2 生成</b> 的为用 LTX-2 制作的业务主题短片（非项目结果数据）。开源框架（TRL / LeRobot / RLinf / Show-o / nanobot）本人负责搭建·复现·真实训练·排障与结果分析。</footer>
+</div>
+
+</body>
+</html>

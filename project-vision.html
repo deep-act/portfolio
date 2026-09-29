@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>商品视觉识别系统 · 唐涵作品集</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #000; color: #f5f5f7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .lnav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: 48px;
+    background: rgba(0,0,0,.82);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 6%; font-size: 13px;
+  }
+  .lnav .back { color: #2997ff; text-decoration: none; font-size: 14px; }
+  .lnav .back:hover { color: #6cb6ff; }
+  .lnav .title { font-weight: 600; font-size: 14px; color: #a1a1a6; }
+  .lnav .cta-btn {
+    background: #0071e3; color: #fff; border-radius: 980px;
+    padding: 6px 18px; font-size: 13px; text-decoration: none;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 80vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 120px 6% 80px;
+    background: linear-gradient(180deg, #1a1a2e 0%, #000 100%);
+  }
+  .hero .eyebrow {
+    font-size: 13px; letter-spacing: .16em; color: #86868b;
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 68px); font-weight: 700;
+    letter-spacing: -.02em; line-height: 1.08;
+  }
+  .hero .sub {
+    font-size: clamp(17px, 2.4vw, 24px); color: #a1a1a6;
+    margin-top: 16px; max-width: 640px; line-height: 1.5;
+  }
+
+  /* Section */
+  .section {
+    padding: 100px 6%;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .section.center { text-align: center; }
+  .section .eyebrow {
+    font-size: 12px; letter-spacing: .14em; color: #86868b;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .section h2 {
+    font-size: clamp(26px, 4vw, 44px); font-weight: 700;
+    letter-spacing: -.01em; line-height: 1.12; margin-bottom: 16px;
+  }
+  .section p {
+    font-size: 17px; color: #a1a1a6; line-height: 1.7;
+    max-width: 700px;
+  }
+  .section.center p { margin: 0 auto; }
+
+  /* Visual blocks */
+  .visual-block {
+    width: 100%; border-radius: 20px; overflow: hidden;
+    margin: 40px 0; background: #111;
+    min-height: 300px; display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .visual-block .placeholder {
+    color: #424245; font-size: 15px; text-align: center; padding: 60px;
+  }
+  .visual-block .placeholder .icon { font-size: 64px; margin-bottom: 16px; }
+
+  /* Feature grid */
+  .feature-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+    margin-top: 50px;
+  }
+  .feature-card {
+    background: #111; border-radius: 20px; padding: 36px;
+    border: 1px solid #1d1d1f;
+  }
+  .feature-card .icon { font-size: 40px; margin-bottom: 16px; }
+  .feature-card h3 { font-size: 20px; margin-bottom: 10px; }
+  .feature-card p { font-size: 14px; color: #6e6e73; line-height: 1.6; }
+
+  /* Stats */
+  .stats-row {
+    display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+    padding: 80px 6%;
+    background: #000; border-top: 1px solid #1d1d1f; border-bottom: 1px solid #1d1d1f;
+  }
+  .stat .num {
+    font-size: clamp(36px, 5vw, 60px); font-weight: 700;
+    background: linear-gradient(135deg, #2997ff, #a855f7);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat .label { font-size: 14px; color: #6e6e73; margin-top: 8px; }
+
+  /* Architecture */
+  .arch-section {
+    background: #f5f5f7; color: #1d1d1f; padding: 100px 6%;
+  }
+  .arch-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .arch-inner h2 {
+    font-size: clamp(26px, 4vw, 44px); font-weight: 700;
+    letter-spacing: -.01em; margin-bottom: 16px;
+  }
+  .arch-inner p { font-size: 17px; color: #424245; line-height: 1.7; margin-bottom: 12px; }
+
+  .pipeline {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; flex-wrap: wrap; margin-top: 50px;
+  }
+  .pipeline .step {
+    background: #fff; border-radius: 16px; padding: 24px 20px;
+    min-width: 140px; text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,.06);
+  }
+  .pipeline .step .step-icon { font-size: 32px; margin-bottom: 10px; }
+  .pipeline .step .step-name { font-size: 14px; font-weight: 600; color: #1d1d1f; }
+  .pipeline .step .step-desc { font-size: 12px; color: #6e6e73; margin-top: 4px; }
+  .pipeline .arrow { font-size: 24px; color: #0071e3; }
+
+  /* Tech tags */
+  .tech-tags {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; margin-top: 30px;
+  }
+  .tech-tag {
+    background: #fff; border: 1px solid #d2d2d7;
+    border-radius: 980px; padding: 8px 20px;
+    font-size: 14px; color: #1d1d1f;
+  }
+
+  /* Footer */
+  .footer {
+    background: #000; border-top: 1px solid #1d1d1f;
+    padding: 40px 6%; text-align: center;
+  }
+  .footer a { color: #2997ff; text-decoration: none; font-size: 14px; }
+  .footer a:hover { color: #6cb6ff; }
+  .footer p { font-size: 12px; color: #424245; margin-top: 16px; }
+
+  /* Fade in */
+  .fade-in {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .stats-row { gap: 30px; }
+    .pipeline { flex-direction: column; }
+    .pipeline .arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="lnav">
+  <a href="index.html" class="back">‹ 返回作品集</a>
+  <span class="title">商品视觉识别系统</span>
+  <a href="index.html#contact" class="cta-btn">联系我</a>
+</nav>
+
+<section class="hero">
+  <p class="eyebrow">Project 01 · 商品视觉识别</p>
+  <h1>一眼识万物。<br/>从像素到语义。</h1>
+  <p class="sub">融合向量检索、文档 OCR 与目标检测，构建端到端商品识别系统。覆盖 23,610 类 SKU，单张推理 380ms。</p>
+</section>
+
+<!-- System Overview -->
+<section class="section center fade-in">
+  <p class="eyebrow">系统概览</p>
+  <h2>三大引擎，一套系统。</h2>
+  <p>将 DINOv3 向量嵌入检索、DeepSeek-OCR / HunyuanOCR 文档理解、YOLO 目标检测三大能力整合为统一的商品识别管线，支持从图片输入到结构化输出的全流程。</p>
+</section>
+
+<div class="visual-block fade-in">
+  <div class="placeholder">
+    <div class="icon">🔍</div>
+    <p>系统架构图：输入图片 → 目标检测 → OCR 识别 → 向量检索 → 结构化输出<br/>（替换为实际系统架构图）</p>
+  </div>
+</div>
+
+<!-- Three Engines -->
+<section class="section fade-in">
+  <p class="eyebrow">核心引擎</p>
+  <h2>每个模块，都是利器。</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="icon">🧬</div>
+      <h3>DINOv3 向量检索</h3>
+      <p>基于 DINOv3 ViT-Large 生成 1024 维 L2 归一化嵌入，采用 Multi-Similarity Loss 训练。覆盖 23,610 个商品类别，支持 TensorRT FP16 加速推理。</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📄</div>
+      <h3>DeepSeek-OCR / HunyuanOCR</h3>
+      <p>DeepSeek-OCR 从 LLM 视角研究视觉编码器，支持原生分辨率与动态分辨率。HunyuanOCR-1.5 轻量端到端 VLM，集成 DFlash 投机解码加速，支持 PC 端 llama.cpp 部署。</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🎯</div>
+      <h3>YOLO 目标检测</h3>
+      <p>支持 Board / Grid / Product 多种检测模式，精准定位商品区域。与 OCR 和 Embedding 模块联动，实现检测-识别-检索的完整链路。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-row fade-in">
+  <div class="stat">
+    <div class="num">23,610</div>
+    <div class="label">SKU 类别覆盖</div>
+  </div>
+  <div class="stat">
+    <div class="num">380ms</div>
+    <div class="label">单张推理时间</div>
+  </div>
+  <div class="stat">
+    <div class="num">1024</div>
+    <div class="label">嵌入维度</div>
+  </div>
+  <div class="stat">
+    <div class="num">707K</div>
+    <div class="label">训练样本数</div>
+  </div>
+</div>
+
+<!-- Pipeline -->
+<section class="arch-section fade-in">
+  <div class="arch-inner">
+    <p class="eyebrow" style="color:#86868b">处理流程</p>
+    <h2>从输入到输出，四步完成。</h2>
+    <p>整个识别流程自动化运行，无需人工干预。每个环节独立优化，可插拔替换。</p>
+    <div class="pipeline">
+      <div class="step">
+        <div class="step-icon">📷</div>
+        <div class="step-name">图像输入</div>
+        <div class="step-desc">商品照片 / 截图</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <div class="step-icon">🎯</div>
+        <div class="step-name">目标检测</div>
+        <div class="step-desc">YOLO 定位商品</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <div class="step-icon">📄</div>
+        <div class="step-name">OCR 识别</div>
+        <div class="step-desc">提取文字信息</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <div class="step-icon">🧬</div>
+        <div class="step-name">向量检索</div>
+        <div class="step-desc">DINOv3 匹配 SKU</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tech Stack -->
+<section class="section center fade-in">
+  <p class="eyebrow">技术栈</p>
+  <h2>关键技术。</h2>
+  <div class="tech-tags">
+    <span class="tech-tag">DINOv3 ViT-Large</span>
+    <span class="tech-tag">Multi-Similarity Loss</span>
+    <span class="tech-tag">TensorRT FP16</span>
+    <span class="tech-tag">DeepSeek-OCR</span>
+    <span class="tech-tag">HunyuanOCR-1.5</span>
+    <span class="tech-tag">DFlash 投机解码</span>
+    <span class="tech-tag">YOLO</span>
+    <span class="tech-tag">PyTorch</span>
+    <span class="tech-tag">ONNX</span>
+    <span class="tech-tag">llama.cpp</span>
+  </div>
+</section>
+
+<!-- Demo -->
+<section class="section center fade-in">
+  <p class="eyebrow">效果展示</p>
+  <h2>实际运行效果。</h2>
+  <div class="visual-block" style="background:#111; min-height:400px;">
+    <div class="placeholder">
+      <div class="icon">🖼️</div>
+      <p>商品识别 Demo 截图 / 视频<br/>展示检测框叠加、OCR 结果、检索匹配效果<br/>（替换为实际 Demo 截图或嵌入视频）</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <a href="index.html">← 返回作品集首页</a>
+  <p>© 2026 唐涵 · 商品视觉识别系统</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
